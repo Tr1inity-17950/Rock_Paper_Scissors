@@ -15,10 +15,6 @@ function getComputerChoice () {
     }
 }
 
-/*OBTAIN human choice
-UTILIZE prompt to get user input
-CHECK the Return with console.log()*/
-
 //Human prompted choice
 function getHumanChoice () {
     let humanChoice = prompt ("Choose between Rock, Paper or Scissors");
@@ -27,7 +23,7 @@ function getHumanChoice () {
 
 //Single round
 function playRound(humanChoice, computerChoice) {
-    switch (playRound) {
+    switch (true) {
         case humanChoice === computerChoice:
             return console.log("Both " + humanChoice + ", is a tie!");
             break;
@@ -67,15 +63,24 @@ function playGame(){
     let computerChoice;
     let totalRounds = 1;
 
-    for (let i = 0, i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         console.log("Round " + totalRounds);
         totalRounds++;
 
         humanChoice = getHumanChoice();
-        computerChoice = getComputerChoice;
+        computerChoice = getComputerChoice();
         playRound (humanChoice, computerChoice);
         console.log("Your Score: " + humanScore + " || Computer Score: " + computerScore);
     }
+
+    let winner = "";
+        if (humanScore > computerScore){
+            winner = "player";
+        } else {
+            winner = "computer";
+        }
+
+    console.log(`Winner: ${winner}`);
 }
 
 playGame()
