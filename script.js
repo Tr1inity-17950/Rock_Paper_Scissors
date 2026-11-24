@@ -2,11 +2,6 @@
 let humanScore= 0
 let computerScore= 0
 
-
-/*OBTAIN Computer choice
-RETURN "Rock", "Paper" or "Scissors"
-TEST return with console.log()*/
-
 //Computer randomized choice
 function getComputerChoice () {
     let randomChoice = Math.floor(Math.random() * 3) + 1
@@ -29,11 +24,6 @@ function getHumanChoice () {
     let humanChoice = prompt ("Choose between Rock, Paper or Scissors");
     return humanChoice.toLowerCase()
 }
-
-/*WRITE logic for a single round
-USE computer choice and human choice as parameters
-Show the winner through console.log()
-INCREMENT humanScore or ComputerScore based on the winner*/
 
 //Single round
 function playRound(humanChoice, computerChoice) {
@@ -68,12 +58,24 @@ function playRound(humanChoice, computerChoice) {
         default:
             return console.log("Invalid answer!")
             break;
-    }
-    
-    /*if (humanChoice===computerChoice) {
-        return console.log("Both " + humanChoice + ", is a tie!")
-    } else if (humanChoice === "rock" && computerChoice === "paper") {
-        computerScore ++;
-        return console.log("You lose! Paper beats Rock")
-    } else if */
+    } 
 }
+ 
+//Logic for the entire game
+function playGame(){
+    let humanChoice;
+    let computerChoice;
+    let totalRounds = 1;
+
+    for (let i = 0, i < 5; i++) {
+        console.log("Round " + totalRounds);
+        totalRounds++;
+
+        humanChoice = getHumanChoice();
+        computerChoice = getComputerChoice;
+        playRound (humanChoice, computerChoice);
+        console.log("Your Score: " + humanScore + " || Computer Score: " + computerScore);
+    }
+}
+
+playGame()
